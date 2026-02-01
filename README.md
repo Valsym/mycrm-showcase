@@ -6,6 +6,7 @@
 [![Live Demo](https://img.shields.io/badge/🚀-Live_Demo-green?style=for-the-badge)](https://crm.valsy.ru)
 ## 🛡️ Качество кода
 [![PHPStan](https://img.shields.io/badge/PHPStan-Level%205-brightgreen.svg?style=flat)](https://phpstan.org/user-guide/rule-levels)
+
 [![CI/CD Status](https://github.com/Valsym/mycrm-showcase/workflows/Laravel%20CI/badge.svg)](https://github.com/Valsym/mycrm-showcase/actions)
 
 > Полноценная рабочая CRM система с урезанным функционалом для демонстрации архитектуры  и лучших практик Laravel

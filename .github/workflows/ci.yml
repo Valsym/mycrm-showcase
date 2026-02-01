@@ -1,4 +1,4 @@
-name: PHPStan Static Analysis
+name: Laravel CI
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   phpstan:
-    name: PHPStan Level 5
+    name: PHPStan Analysis
     runs-on: ubuntu-latest
 
     steps:
