@@ -1,8 +1,8 @@
 <?php
 
-namespace app\interfaces;
+namespace App\Interfaces;
 
-interface PersonInterface
+Interface PersonInterface
 {
     /**
      * @return string

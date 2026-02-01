@@ -4,10 +4,31 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 /**
- * @method static \Illuminate\Database\Eloquent\Builder|Feed find($id)
- * @method static \Illuminate\Database\Eloquent\Builder|Feed findOrFail($id)
+ * @property int $id
+ * @property string $type
+ * @property int|null $user_id
+ * @property int $deal_id
+ * @property string $value
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Deal $deal
+ * @property-read \App\Models\User|null $user
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Feed forDeal(int $dealId)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Feed newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Feed newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Feed ofType(string $type)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Feed query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Feed whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Feed whereDealId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Feed whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Feed whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Feed whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Feed whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Feed whereValue($value)
+ * @mixin \Eloquent
  */
 class Feed extends Model
 {
@@ -87,7 +108,7 @@ class Feed extends Model
             'type' => $type,
             'deal_id' => $dealId,
             'value' => (string) $value,
-            'user_id' => $userId ?? auth()->id(),
+            'user_id' => $userId ?? Auth::id(),
             'created_at' => now(),
         ]);
     }

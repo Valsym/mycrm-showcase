@@ -120,7 +120,7 @@ class DashboardController extends Controller
             }
 
             $months[] = (object) [
-                'month' => $year.'-'.str_pad($month, 2, '0', STR_PAD_LEFT),
+                'month' => $year.'-'.str_pad((string)$month, 2, '0', STR_PAD_LEFT),
                 'count' => rand(5, 20),
                 'total' => rand(100, 500),
             ];

@@ -1,0 +1,14 @@
+parameters:
+    level: 5
+    paths:
+        - app
+    checkMissingCallableSignature: false
+    ignoreErrors:
+        - '#Call to an undefined static method .*::where\(\)#'
+        - '#Call to an undefined static method .*::create\(\)#'
+        - '#Call to an undefined static method .*::withCount\(\)#'
+        - '#Call to an undefined static method .*::find\(\)#'
+        - '#Call to an undefined static method .*::firstOrCreate\(\)#'
+        - '#PHPDoc tag @mixin contains unknown class#'
+        - '#Call to an undefined method Illuminate\\Database\\Eloquent\\Builder<App\\Models\\Deal>::search\(\)#'
+        - '#Call to an undefined method Illuminate\\Database\\Eloquent\\Builder<App\\Models\\Deal>::filter\(\)#'

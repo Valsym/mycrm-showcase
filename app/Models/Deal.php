@@ -8,8 +8,54 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * @method static \Illuminate\Database\Eloquent\Builder|Feed find($id)
- * @method static \Illuminate\Database\Eloquent\Builder|Feed findOrFail($id)
+ * @property int $id
+ * @property string $name
+ * @property int|null $company_id
+ * @property int|null $status_id
+ * @property int|null $contact_id
+ * @property int|null $executor_id
+ * @property int|null $user_id
+ * @property \Illuminate\Support\Carbon|null $due_date
+ * @property string|null $description
+ * @property int $budget_amount
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \App\Models\Company|null $company
+ * @property-read \App\Models\Contact|null $contact
+ * @property-read \App\Models\User|null $executor
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Feed> $feed
+ * @property-read int|null $feed_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Note> $notes
+ * @property-read int|null $notes_count
+ * @property-read \App\Models\User|null $owner
+ * @property-read \App\Models\DealStatus|null $status
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Task> $tasks
+ * @property-read int|null $tasks_count
+ * @method static \Database\Factories\DealFactory factory($count = null, $state = [])
+ * @method static Builder<static>|Deal filter(array $filters)
+ * @method static Builder<static>|Deal newModelQuery()
+ * @method static Builder<static>|Deal newQuery()
+ * @method static Builder<static>|Deal onlyTrashed()
+ * @method static Builder<static>|Deal query()
+ * @method static Builder<static>|Deal search($search)
+ * @method static Builder<static>|Deal sort(string $sortBy = 'created_at', string $sortOrder = 'desc')
+ * @method static Builder<static>|Deal whereBudgetAmount($value)
+ * @method static Builder<static>|Deal whereCompanyId($value)
+ * @method static Builder<static>|Deal whereContactId($value)
+ * @method static Builder<static>|Deal whereCreatedAt($value)
+ * @method static Builder<static>|Deal whereDeletedAt($value)
+ * @method static Builder<static>|Deal whereDescription($value)
+ * @method static Builder<static>|Deal whereDueDate($value)
+ * @method static Builder<static>|Deal whereExecutorId($value)
+ * @method static Builder<static>|Deal whereId($value)
+ * @method static Builder<static>|Deal whereName($value)
+ * @method static Builder<static>|Deal whereStatusId($value)
+ * @method static Builder<static>|Deal whereUpdatedAt($value)
+ * @method static Builder<static>|Deal whereUserId($value)
+ * @method static Builder<static>|Deal withTrashed(bool $withTrashed = true)
+ * @method static Builder<static>|Deal withoutTrashed()
+ * @mixin \Eloquent
  */
 class Deal extends Model
 {
@@ -103,7 +149,13 @@ class Deal extends Model
         return $query;
     }
 
-    public function scopeSort(Builder $query, string $sortBy = 'created_at', string $sortOrder = 'desc'): Builder
+    /**
+     * @param Builder $query
+     * @param string $sortBy
+     * @param string $sortOrder
+     * @return \Illuminate\Database\Eloquent\Builder<\App\Models\Deal>
+     */
+    public function scopeSort(\Illuminate\Database\Eloquent\Builder $query, string $sortBy = 'created_at', string $sortOrder = 'desc'): Builder
     {
         // поля для сортировки
         $validSortFields = ['created_at', 'budget_amount', 'name'];
@@ -112,6 +164,11 @@ class Deal extends Model
         $sortBy = in_array($sortBy, $validSortFields) ? $sortBy : 'created_at';
         $sortOrder = in_array($sortOrder, $validSortOrders) ? $sortOrder : 'desc';
 
-        return $query->orderBy($sortBy, $sortOrder);
+        // Выполняем сортировку через query builder
+        $query->getQuery()->orderBy($sortBy, $sortOrder);
+
+        // Возвращаем Eloquent Builder
+        return $query;
+
     }
 }

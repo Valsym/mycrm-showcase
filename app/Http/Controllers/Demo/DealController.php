@@ -36,8 +36,8 @@ class DealController extends Controller
         $dealStatuses = DealStatus::withCount('deals')->get();
 
         // ✅ Очень простая статистика
-        $totalDeals = Deal::count();
-        $totalAmount = Deal::sum('budget_amount');
+        $totalDeals = Deal::query()->count();
+        $totalAmount = Deal::query()->sum('budget_amount');
 
         return view('demo.deals.index', compact(
             'deals',
@@ -45,12 +45,6 @@ class DealController extends Controller
             'totalDeals',
             'totalAmount'
         ));
-
-        $deals = Deal::with(['company', 'owner', 'status'])
-            ->latest()
-            ->paginate(10);
-
-        return view('demo.deals.index', compact('deals'));
     }
 
     public function create()

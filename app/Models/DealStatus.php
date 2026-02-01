@@ -5,8 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @method static \Illuminate\Database\Eloquent\Builder|Feed find($id)
- * @method static \Illuminate\Database\Eloquent\Builder|Feed findOrFail($id)
+ * @property int $id
+ * @property string $name
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $alias
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Deal> $deals
+ * @property-read int|null $deals_count
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|DealStatus newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|DealStatus newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|DealStatus query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|DealStatus whereAlias($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|DealStatus whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|DealStatus whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|DealStatus whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|DealStatus whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class DealStatus extends Model
 {
