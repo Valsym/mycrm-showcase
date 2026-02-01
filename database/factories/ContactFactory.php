@@ -22,7 +22,7 @@ class ContactFactory extends Factory
             'phone' => substr($this->faker->e164PhoneNumber, 1, 11),
             'position' => $this->faker->jobTitle,
             'type_id' => rand(1, 3),
-            'company_id' => rand(1, 10)
+            'company_id' => rand(1, 10),
         ];
     }
 }

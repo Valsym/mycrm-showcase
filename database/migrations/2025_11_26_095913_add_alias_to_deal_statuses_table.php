@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::table('deal_statuses', function (Blueprint $table) {
             $table->string('alias')->nullable();
         });
-//        Schema::table('deals', function (Blueprint $table) {
-//            $table->dropColumn('alias'); });
+        //        Schema::table('deals', function (Blueprint $table) {
+        //            $table->dropColumn('alias'); });
     }
 
     /**

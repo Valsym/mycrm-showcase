@@ -19,16 +19,16 @@ return new class extends Migration
             $table->timestamps();
         });
 
-//        $this->createTable('note', [
-//            'id' => $this->primaryKey(),
-//            'deal_id' => $this->integer()->notNull(),
-//            'dt_add' => $this->dateTime()->defaultValue(new Expression('NOW()')),
-//            'user_id' => $this->integer()->notNull(),
-//            'content' => $this->text()
-//        ]);
-//
-//        $this->addForeignKey('user_note', 'note', 'user_id', 'user', 'id');
-//        $this->addForeignKey('deal_note', 'note', 'deal_id', 'deal', 'id');
+        //        $this->createTable('note', [
+        //            'id' => $this->primaryKey(),
+        //            'deal_id' => $this->integer()->notNull(),
+        //            'dt_add' => $this->dateTime()->defaultValue(new Expression('NOW()')),
+        //            'user_id' => $this->integer()->notNull(),
+        //            'content' => $this->text()
+        //        ]);
+        //
+        //        $this->addForeignKey('user_note', 'note', 'user_id', 'user', 'id');
+        //        $this->addForeignKey('deal_note', 'note', 'deal_id', 'deal', 'id');
     }
 
     /**

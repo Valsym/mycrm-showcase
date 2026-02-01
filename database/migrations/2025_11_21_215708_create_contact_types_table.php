@@ -21,7 +21,7 @@ return new class extends Migration
         DB::table('contact_types')->insert([
             ['name' => 'Новый'],
             ['name' => 'Активный'],
-            ['name' => 'Архив']
+            ['name' => 'Архив'],
         ]);
     }
 

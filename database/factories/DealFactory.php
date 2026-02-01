@@ -25,7 +25,7 @@ class DealFactory extends Factory
             'user_id' => rand(1, 5),
             'due_date' => $this->faker->dateTimeBetween('now', '+2 years')->format('Y-m-d'),
             'description' => $this->faker->paragraph(2),
-            'budget_amount' => $this->faker->numberBetween(5000, 500000)
+            'budget_amount' => $this->faker->numberBetween(5000, 500000),
         ];
     }
 }

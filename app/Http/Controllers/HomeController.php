@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\LoginForm;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,8 +31,8 @@ class HomeController extends Controller
             [
                 'name' => 'Димон',
                 'password' => Hash::make('demo'),
-//                'position' => 'Админ',
-//                'company' => 'ООО Демо',
+                //                'position' => 'Админ',
+                //                'company' => 'ООО Демо',
             ]
         );
 

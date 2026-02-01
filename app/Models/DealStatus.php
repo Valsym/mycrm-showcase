@@ -26,7 +26,7 @@ class DealStatus extends Model
     public static function rules(): array
     {
         return [
-            'name' => 'required|string|max:255|unique:deal_statuses,name'
+            'name' => 'required|string|max:255|unique:deal_statuses,name',
         ];
     }
 
@@ -64,5 +64,4 @@ class DealStatus extends Model
     {
         return $this->deals()->count();
     }
-
 }

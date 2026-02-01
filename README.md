@@ -50,6 +50,9 @@
 ```bash
 # 1. Клонируйте репозиторий
 git clone https://github.com/vlsym/mycrm-showcase.git
+# or
+git clone git@github.com:valsym/mycrm-showcase.git
+
 cd mycrm-showcase
 
 # 2. Установите зависимости
@@ -65,7 +68,7 @@ echo "DB_CONNECTION=sqlite" >> .env
 touch database/database.sqlite
 
 # 5. Запустите миграции и сиды (демо-данные)
-php artisan migrate --seed --seeder=DatabaseSeeder
+php artisan migrate --seed
 
 # 6. Запустите сервер
 php artisan serve

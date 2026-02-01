@@ -24,8 +24,8 @@ return new class extends Migration
             $table->softDeletes();
 
             // Если нужны внешние ключи
-//            $table->foreign('type_id')->references('id')->on('contact_types');
-//            $table->foreign('company_id')->references('id')->on('companies');
+            //            $table->foreign('type_id')->references('id')->on('contact_types');
+            //            $table->foreign('company_id')->references('id')->on('companies');
         });
     }
 

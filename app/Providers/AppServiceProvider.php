@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use App\Models\Deal;
 use App\Observers\DealObserver;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -22,7 +21,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //Deal::observe(DealObserver::class);
+        // Deal::observe(DealObserver::class);
 
     }
 }

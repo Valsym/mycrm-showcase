@@ -1,5 +1,7 @@
 <?php
+
 // Базовый демо-контроллер для всех сущностей
+
 namespace App\Http\Controllers\Demo;
 
 use App\Http\Controllers\Controller;
@@ -7,7 +9,9 @@ use App\Http\Controllers\Controller;
 abstract class BaseDemoController extends Controller
 {
     protected $model;
+
     protected $viewPath;
+
     protected $entityName;
 
     public function index()

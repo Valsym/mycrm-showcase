@@ -12,5 +12,4 @@ class DealTag extends Model
     {
         return $this->belongsTo(Deal::class);
     }
-
 }

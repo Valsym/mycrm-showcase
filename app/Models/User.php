@@ -4,9 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\interfaces\PersonInterface;
-use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -28,7 +26,7 @@ class User extends Authenticatable implements PersonInterface
         'company',
         'phone',
         'telegram_chat_id',
-        'telegram_temp_code'
+        'telegram_temp_code',
     ];
 
     /**
@@ -80,5 +78,4 @@ class User extends Authenticatable implements PersonInterface
     {
         return $this->company ?? null;
     }
-
 }

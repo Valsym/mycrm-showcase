@@ -58,5 +58,4 @@ return [
         'channel_id' => env('TELEGRAM_CHANNEL_ID'), // для уведомлений всей команды
     ],
 
-
 ];

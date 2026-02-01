@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-//        Schema::dropIfExists('users');
-        if (!Schema::hasColumn('users', 'company')) {
+        //        Schema::dropIfExists('users');
+        if (! Schema::hasColumn('users', 'company')) {
             Schema::table('users', function (Blueprint $table) {
                 $table->string('company')->nullable();
             });

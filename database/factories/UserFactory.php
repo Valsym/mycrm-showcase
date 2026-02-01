@@ -31,7 +31,7 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'company' => fake()->company,
             'phone' => substr(fake()->e164PhoneNumber, 1, 11),
-            'position' => fake()->jobTitle
+            'position' => fake()->jobTitle,
         ];
     }
 

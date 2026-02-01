@@ -4,9 +4,6 @@ namespace App\Http\Controllers\Demo;
 
 use App\Http\Controllers\Controller;
 use App\Models\Deal;
-use App\Models\User;
-use App\Models\Company;
-use App\Models\Contact;
 use App\Models\DealStatus;
 use Illuminate\Http\Request;
 
@@ -25,10 +22,10 @@ class DealController extends Controller
         ]);
 
         $deals = Deal::query()
-            ->when(!empty($validated['search']), function($q) use ($validated) {
+            ->when(! empty($validated['search']), function ($q) use ($validated) {
                 $q->search($validated['search']);
             })
-            ->when(!empty($validated['date_from']) || !empty($validated['date_to']), function($q) use ($validated) {
+            ->when(! empty($validated['date_from']) || ! empty($validated['date_to']), function ($q) use ($validated) {
                 $q->filter($validated);
             })
             ->with(['company', 'contact', 'executor', 'owner'])
@@ -80,5 +77,4 @@ class DealController extends Controller
         return redirect()->route('demo.deals.show', $deal)
             ->with('demo_message', 'Редактирование доступно только в полной версии');
     }
-
 }

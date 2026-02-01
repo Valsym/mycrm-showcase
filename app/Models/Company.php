@@ -31,8 +31,6 @@ class Company extends Model
     /**
      * Scope для поиска (аналог search из Yii2)
      *
-     * @param $query
-     * @param $search
      * @return mixed
      */
     public function scopeSearch($query, $search)
@@ -46,10 +44,9 @@ class Company extends Model
      * Добавление сортировки.
      * Улучшенная версия scope с валидацией
      *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param string|null $orderBy
-     * @param string|null $orderTo
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
+     *
      * @codeCoverageIgnore - Игнор для покрытия тестами, если метод не используется
      */
     public function scopeOrdered($query, ?string $orderBy, ?string $orderTo)
@@ -72,9 +69,10 @@ class Company extends Model
     public function deals()
     {
         return $this->hasMany(Deal::class, 'company_id');
-        }
+    }
 
-    public function activeContacts() {
+    public function activeContacts()
+    {
         return $this->getContacts()->where(['status' => '1'])->orderBy(['dt_add' => SORT_ASC]);
     }
 
@@ -82,5 +80,4 @@ class Company extends Model
     {
         return $this->count();
     }
-
 }

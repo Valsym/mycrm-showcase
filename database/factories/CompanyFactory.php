@@ -21,7 +21,7 @@ class CompanyFactory extends Factory
             'email' => $this->faker->email,
             'url' => $this->faker->url,
             'address' => $this->faker->address,
-            'phone' => substr($this->faker->e164PhoneNumber, 1, 11)
+            'phone' => substr($this->faker->e164PhoneNumber, 1, 11),
         ];
     }
 }

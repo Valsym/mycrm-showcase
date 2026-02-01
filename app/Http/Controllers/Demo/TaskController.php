@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Demo;
 
 use App\Models\Task;
@@ -6,7 +7,9 @@ use App\Models\Task;
 class TaskController extends BaseDemoController
 {
     protected $model = Task::class;
+
     protected $viewPath = 'tasks';
+
     protected $entityName = 'task';
 
     protected function getRelations()

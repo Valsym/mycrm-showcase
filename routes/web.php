@@ -1,20 +1,18 @@
 <?php
 
-use App\Http\Controllers\Demo\{
-    DashboardController,
-    DealController,
-    CompanyController,
-    ContactController,
-    TaskController,
-    UserController
-};
+use App\Http\Controllers\Demo\CompanyController;
+use App\Http\Controllers\Demo\ContactController;
+use App\Http\Controllers\Demo\DashboardController;
+use App\Http\Controllers\Demo\DealController;
+use App\Http\Controllers\Demo\TaskController;
+use App\Http\Controllers\Demo\UserController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 // Простой тестовый маршрут
-//Route::get('/', function () {
+// Route::get('/', function () {
 //    return 'TurboCRM Demo - работает!';
-//});
+// });
 
 // Главная страница - демо-лендинг
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -42,6 +40,4 @@ Route::middleware('auth')->prefix('demo')->name('demo.')->group(function () {
     Route::resource('tasks', TaskController::class)->only(['index', 'show']);
     Route::resource('users', UserController::class)->only(['index', 'show']);
 
-
 });
-

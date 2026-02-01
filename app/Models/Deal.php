@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Builder;
 
 /**
  * @method static \Illuminate\Database\Eloquent\Builder|Feed find($id)
@@ -18,7 +18,7 @@ class Deal extends Model
     protected $fillable = ['name', 'company_id', 'status_id', 'user_id',
         'status_id', 'user_id', 'contact_id', 'executor_id',
         'due_date', 'description', 'budget_amount',
-        ];
+    ];
 
     protected $casts = [
         'due_date' => 'date',
@@ -89,16 +89,15 @@ class Deal extends Model
         return $query->where('name', 'like', "%{$search}%");
     }
 
-
     public function scopeFilter(Builder $query, array $filters): Builder
     {
         // Фильтрация по дате создания
-        if (!empty($filters['date_from'])) {
+        if (! empty($filters['date_from'])) {
             $query->where('created_at', '>=', $filters['date_from']);
         }
 
-        if (!empty($filters['date_to'])) {
-            $query->where('created_at', '<=', $filters['date_to'] . ' 23:59:59');
+        if (! empty($filters['date_to'])) {
+            $query->where('created_at', '<=', $filters['date_to'].' 23:59:59');
         }
 
         return $query;
@@ -115,5 +114,4 @@ class Deal extends Model
 
         return $query->orderBy($sortBy, $sortOrder);
     }
-
 }

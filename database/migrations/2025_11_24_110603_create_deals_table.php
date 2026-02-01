@@ -25,13 +25,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             // было:
-//            $table->unsignedBigInteger('company_id')->nullable();
-//            $table->unsignedBigInteger('status_id')->nullable();
-//            $table->unsignedBigInteger('contact_id')->nullable();
-//            $table->unsignedBigInteger('executor_id')->nullable();
-//            $table->date('due_date');
-//            $table->text('description');
-//            $table->integer('budget_amount');
+            //            $table->unsignedBigInteger('company_id')->nullable();
+            //            $table->unsignedBigInteger('status_id')->nullable();
+            //            $table->unsignedBigInteger('contact_id')->nullable();
+            //            $table->unsignedBigInteger('executor_id')->nullable();
+            //            $table->date('due_date');
+            //            $table->text('description');
+            //            $table->integer('budget_amount');
 
             // исправлены ошибки:
             $table->foreignId('company_id')->nullable()->constrained()->onDelete('cascade');
@@ -42,18 +42,16 @@ return new class extends Migration
             $table->date('due_date')->nullable(); // исправлен тип
             $table->text('description')->nullable(); // может быть пустым
             $table->integer('budget_amount')->default(0);
-//            $table->string('alias')->nullable();
+            //            $table->string('alias')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
 
-
-
         Schema::create('deal_tags', function (Blueprint $table) {
             $table->id();
-//            // было
-//            $table->string('name')->unique();
-//            $table->unsignedBigInteger('deal_id');
+            //            // было
+            //            $table->string('name')->unique();
+            //            $table->unsignedBigInteger('deal_id');
             // исправлено
             $table->string('name')->unique();
             $table->foreignId('deal_id')->constrained()->onDelete('cascade');
@@ -61,12 +59,12 @@ return new class extends Migration
         });
 
         // Затем вставляем данные | Нет, вставим в сидере !!! т.к. Миграция для структуры БД
-//        DB::table('deal_statuses')->insert([
-//            ['name' => 'Новый', 'alias' => 'new'],
-//            ['name' => 'Презентация', 'alias' => 'presentation'],
-//            ['name' => 'В работе', 'alias' => 'in-work'],
-//            ['name' => 'Завершен', 'alias' => 'completed'],
-//        ]);
+        //        DB::table('deal_statuses')->insert([
+        //            ['name' => 'Новый', 'alias' => 'new'],
+        //            ['name' => 'Презентация', 'alias' => 'presentation'],
+        //            ['name' => 'В работе', 'alias' => 'in-work'],
+        //            ['name' => 'Завершен', 'alias' => 'completed'],
+        //        ]);
     }
 
     /**
@@ -75,7 +73,7 @@ return new class extends Migration
     public function down(): void
     {
         // было
-//        Schema::dropIfExists('deals');
+        //        Schema::dropIfExists('deals');
         // исправлено
         Schema::dropIfExists('deal_tags');
         Schema::dropIfExists('deals');

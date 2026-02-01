@@ -3,12 +3,6 @@
 namespace App\Http\Controllers\Demo;
 
 use App\Http\Controllers\Controller;
-use App\Models\Deal;
-use App\Models\Company;
-use App\Models\Task;
-use App\Models\User;
-use App\Models\Contact;
-use App\Models\DealStatus;
 use Illuminate\Support\Carbon;
 
 class DashboardController extends Controller
@@ -32,20 +26,20 @@ class DashboardController extends Controller
     {
         // Статические данные для демо
         return [
-            (object)[
+            (object) [
                 'id' => 1,
                 'deal_id' => 1,
-                'deal' => (object)['name' => 'Разработка сайта'],
-                'type' => (object)['name' => 'Звонок'],
-                'executor' => (object)['name' => 'Иван Иванов'],
+                'deal' => (object) ['name' => 'Разработка сайта'],
+                'type' => (object) ['name' => 'Звонок'],
+                'executor' => (object) ['name' => 'Иван Иванов'],
                 'due_date' => Carbon::tomorrow(),
             ],
-            (object)[
+            (object) [
                 'id' => 2,
                 'deal_id' => 2,
-                'deal' => (object)['name' => 'SEO продвижение'],
-                'type' => (object)['name' => 'Встреча'],
-                'executor' => (object)['name' => 'Петр Петров'],
+                'deal' => (object) ['name' => 'SEO продвижение'],
+                'type' => (object) ['name' => 'Встреча'],
+                'executor' => (object) ['name' => 'Петр Петров'],
                 'due_date' => Carbon::today(),
             ],
         ];
@@ -54,17 +48,17 @@ class DashboardController extends Controller
     private function getDemoNewestCompanies($limit = 2)
     {
         return [
-            (object)[
+            (object) [
                 'id' => 1,
                 'name' => 'ООО Кванта',
                 'address' => 'г. Москва, ул. Пушкина, 1',
-                'url' => '#'
+                'url' => '#',
             ],
-            (object)[
+            (object) [
                 'id' => 2,
                 'name' => 'АО "СтройМир"',
                 'address' => 'г. Санкт-Петербург, Невский пр., 10',
-                'url' => '#'
+                'url' => '#',
             ],
         ];
     }
@@ -113,7 +107,7 @@ class DashboardController extends Controller
         $months = [];
         $monthNames = ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'];
 
-        $currentMonth = (int)date('n');
+        $currentMonth = (int) date('n');
         $currentYear = date('Y');
 
         for ($i = 5; $i >= 0; $i--) {
@@ -125,8 +119,8 @@ class DashboardController extends Controller
                 $year -= 1;
             }
 
-            $months[] = (object)[
-                'month' => $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT),
+            $months[] = (object) [
+                'month' => $year.'-'.str_pad($month, 2, '0', STR_PAD_LEFT),
                 'count' => rand(5, 20),
                 'total' => rand(100, 500),
             ];

@@ -34,8 +34,8 @@ class Task extends Model
     public function scopeSearch($query, $search)
     {
         return $query->where('description', 'like', "%{$search}%");
-//            ->orWhere('phone', 'like', "%{$search}%")
-//            ->orWhere('email', 'like', "%{$search}%");
+        //            ->orWhere('phone', 'like', "%{$search}%")
+        //            ->orWhere('email', 'like', "%{$search}%");
     }
 
     public function scopeOrdered($query, ?string $orderBy, ?string $orderTo)

@@ -9,13 +9,16 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Feed find($id)
  * @method static \Illuminate\Database\Eloquent\Builder|Feed findOrFail($id)
  */
-class Feed  extends Model
+class Feed extends Model
 {
     use HasFactory;
 
     const TYPE_NEW = 'new';
+
     const TYPE_STATUS = 'status';
+
     const TYPE_NOTE = 'note';
+
     const TYPE_EXECUTOR = 'executor';
 
     protected $fillable = ['type', 'value', 'user_id', 'deal_id', 'created_at'];
@@ -83,10 +86,9 @@ class Feed  extends Model
         return self::create([
             'type' => $type,
             'deal_id' => $dealId,
-            'value' => (string)$value,
+            'value' => (string) $value,
             'user_id' => $userId ?? auth()->id(),
             'created_at' => now(),
         ]);
     }
-
 }

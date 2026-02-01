@@ -1,12 +1,9 @@
 <?php
 
-
 namespace app\interfaces;
-
 
 interface PersonInterface
 {
-
     /**
      * @return string
      */

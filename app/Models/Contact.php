@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Contact extends Model //implements PersonInterface
+class Contact extends Model // implements PersonInterface
 {
     /** @use HasFactory<\Database\Factories\ContactFactory> */
     use HasFactory, SoftDeletes;
@@ -21,7 +21,7 @@ class Contact extends Model //implements PersonInterface
         'position',
         'company_id',
         'type_id',
-        'onlyDeals'
+        'onlyDeals',
     ];
 
     public function getAttributeLabels()
@@ -33,7 +33,7 @@ class Contact extends Model //implements PersonInterface
             'position' => 'Должность',
             'company_id' => 'Компания',
             'type_id' => 'Тип',
-            'onlyDeals' => 'Только со сделками'
+            'onlyDeals' => 'Только со сделками',
         ];
     }
 

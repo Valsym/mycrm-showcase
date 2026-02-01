@@ -14,10 +14,10 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'auth' => \App\Http\Middleware\Authenticate::class,
         ]);
-//        $middleware->group('web', [
-//            \App\Http\Middleware\Authenticate::class,
-//            // другие middleware...
-//        ]);
+        //        $middleware->group('web', [
+        //            \App\Http\Middleware\Authenticate::class,
+        //            // другие middleware...
+        //        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

@@ -18,15 +18,15 @@ return new class extends Migration
             $table->string('type', 32);
             $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
             $table->foreignId('deal_id')->constrained('deals')->onDelete('cascade'); // Исправлено
-//            $table->string('value', 255);
-//            $table->foreignId('user_id')->nullable()->index();
-//            $table->integer('deal_id');
+            //            $table->string('value', 255);
+            //            $table->foreignId('user_id')->nullable()->index();
+            //            $table->integer('deal_id');
             $table->string('value');
             $table->timestamps();
 
             // Индексы для оптимизации если надо
-//            $table->index(['type', 'deal_id']);
-//            $table->index('created_at');
+            //            $table->index(['type', 'deal_id']);
+            //            $table->index('created_at');
         });
     }
 

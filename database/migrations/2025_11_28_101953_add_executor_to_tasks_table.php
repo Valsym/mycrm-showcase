@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-//        Schema::table('tasks', function (Blueprint $table) {
-//            $table->foreignId('executor_id')->constrained('users');
-//        });
-//        Schema::table('tasks', function (Blueprint $table) {
-//            $table->foreignId('executor_id')
-//                ->after('user_id')
-//                ->constrained('users')
-//                ->nullOnDelete(); // устанавливает NULL при удалении пользователя
-//        });
-        if (!Schema::hasColumn('tasks', 'executor_id')) {
+        //        Schema::table('tasks', function (Blueprint $table) {
+        //            $table->foreignId('executor_id')->constrained('users');
+        //        });
+        //        Schema::table('tasks', function (Blueprint $table) {
+        //            $table->foreignId('executor_id')
+        //                ->after('user_id')
+        //                ->constrained('users')
+        //                ->nullOnDelete(); // устанавливает NULL при удалении пользователя
+        //        });
+        if (! Schema::hasColumn('tasks', 'executor_id')) {
             Schema::table('tasks', function (Blueprint $table) {
                 $table->foreignId('executor_id')
                     ->after('user_id')

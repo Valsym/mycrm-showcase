@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Demo;
 
 use App\Models\User;
@@ -6,7 +7,9 @@ use App\Models\User;
 class UserController extends BaseDemoController
 {
     protected $model = User::class;
+
     protected $viewPath = 'users';
+
     protected $entityName = 'user';
 
     public function index()

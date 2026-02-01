@@ -19,7 +19,7 @@ class NoteFactory extends Factory
         return [
             'content' => $this->faker->realText(100),
             'user_id' => rand(1, 5),
-            'deal_id' => rand(1, 20)
+            'deal_id' => rand(1, 20),
         ];
     }
 }

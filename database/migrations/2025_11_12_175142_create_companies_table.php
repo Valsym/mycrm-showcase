@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('url', 128)->nullable();
             $table->string('phone', 11)->nullable();
             $table->string('address', 255)->nullable();
-//            'ogrn' => 'ОГРН'
+            //            'ogrn' => 'ОГРН'
             $table->timestamps();
             $table->softDeletes();
         });
