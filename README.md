@@ -215,7 +215,8 @@ mycrm-showcase/
 ### Running Quality Checks
 ```bash
 # Run PHPStan
-composer analyse
+composer analyse #or
+./vendor/bin/phpstan analyse --level=5
 
 # Run on specific file
 vendor/bin/phpstan analyse app/Models/Post.php
